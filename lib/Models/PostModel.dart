@@ -5,15 +5,16 @@
 
 class PostModel {
   PostModel({
-      num? userId, 
-      num? id, 
-      String? title, 
-      String? body,}){
+    num? userId,
+    num? id,
+    String? title,
+    String? body,
+  }) {
     _userId = userId;
     _id = id;
     _title = title;
     _body = body;
-}
+  }
 
   PostModel.fromJson(dynamic json) {
     _userId = json['userId'];
@@ -25,15 +26,18 @@ class PostModel {
   num? _id;
   String? _title;
   String? _body;
-PostModel copyWith({  num? userId,
-  num? id,
-  String? title,
-  String? body,
-}) => PostModel(  userId: userId ?? _userId,
-  id: id ?? _id,
-  title: title ?? _title,
-  body: body ?? _body,
-);
+  PostModel copyWith({
+    num? userId,
+    num? id,
+    String? title,
+    String? body,
+  }) =>
+      PostModel(
+        userId: userId ?? _userId,
+        id: id ?? _id,
+        title: title ?? _title,
+        body: body ?? _body,
+      );
   num? get userId => _userId;
   num? get id => _id;
   String? get title => _title;
@@ -47,5 +51,4 @@ PostModel copyWith({  num? userId,
     map['body'] = _body;
     return map;
   }
-
 }
