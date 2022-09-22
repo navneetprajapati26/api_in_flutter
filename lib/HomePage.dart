@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<PostModel> postList = [];
+
   Future<List<PostModel>> getPostApi() async {
     final respons =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
@@ -46,29 +47,58 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Expanded(
             child: FutureBuilder(
-             future: getPostApi(),
-              builder: (context , snapshot) {
-               if(!snapshot.hasData){
-                 return Text("L O A D I N G..");
-               }else{
-                 return ListView.builder(
-                   itemCount: postList.length,
-                     itemBuilder:(context,index){
-                   return Card(
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Column(
-                         mainAxisAlignment: MainAxisAlignment.start,
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                           Text('T I T A L E\n'+postList[index].title.toString()),
-                           Text('D I S C R I P T I O N\n'+postList[index].body.toString())
-                         ],
-                       ),
-                     ),
-                   );
-                 });
-               }
+              future: getPostApi(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Text("L O A D I N G..");
+                } else {
+                  return ListView.builder(
+                      itemCount: postList.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 7,
+                                ),
+                                Text(
+                                  "T I T A L E",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.amberAccent),
+                                ),
+                                SizedBox(
+                                  height: 7,
+                                ),
+                                Text(postList[index].title.toString()),
+                                SizedBox(
+                                  height: 14,
+                                ),
+                                Text(
+                                  "D I S C R I P T I O N",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.amberAccent),
+                                ),
+                                SizedBox(
+                                  height: 7,
+                                ),
+                                Text(postList[index].body.toString()),
+                                SizedBox(
+                                  height: 7,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      });
+                }
               },
             ),
           )

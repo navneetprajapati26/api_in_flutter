@@ -53,10 +53,13 @@ class _ApiPAGEState extends State<ApiPAGE> {
                         //print(snapshot.data![index].url.toString());
                         return ListTile(
                           leading: CircleAvatar(
-                            backgroundImage: NetworkImage(snapshot.data![index].url.toString()),
+                            backgroundImage: NetworkImage(
+                                snapshot.data![index].url.toString()),
                           ),
-                          title: Text("ID is "+snapshot.data![index].id.toString()),
-                          subtitle: Text(snapshot.data![index].title.toString()),
+                          title: Text(
+                              "ID is " + snapshot.data![index].id.toString()),
+                          subtitle:
+                              Text(snapshot.data![index].title.toString()),
                         );
                       });
                 }),

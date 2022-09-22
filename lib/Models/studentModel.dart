@@ -2,9 +2,10 @@
 
 class StudentModel {
   StudentModel({
-      List<Data>? data,}){
+    List<Data>? data,
+  }) {
     _data = data;
-}
+  }
 
   StudentModel.fromJson(dynamic json) {
     if (json['data'] != null) {
@@ -15,9 +16,12 @@ class StudentModel {
     }
   }
   List<Data>? _data;
-StudentModel copyWith({  List<Data>? data,
-}) => StudentModel(  data: data ?? _data,
-);
+  StudentModel copyWith({
+    List<Data>? data,
+  }) =>
+      StudentModel(
+        data: data ?? _data,
+      );
   List<Data>? get data => _data;
 
   Map<String, dynamic> toJson() {
@@ -27,7 +31,6 @@ StudentModel copyWith({  List<Data>? data,
     }
     return map;
   }
-
 }
 
 /// Student Name : "AAKASH SINGH"
@@ -39,19 +42,20 @@ StudentModel copyWith({  List<Data>? data,
 
 class Data {
   Data({
-      String? studentName, 
-      String? emailAddress, 
-      num? aKTURollno, 
-      String? entry, 
-      num? uPSEERollnumber, 
-      num? uPSEERankGeneral,}){
+    String? studentName,
+    String? emailAddress,
+    num? aKTURollno,
+    String? entry,
+    num? uPSEERollnumber,
+    num? uPSEERankGeneral,
+  }) {
     _studentName = studentName;
     _emailAddress = emailAddress;
     _aKTURollno = aKTURollno;
     _entry = entry;
     _uPSEERollnumber = uPSEERollnumber;
     _uPSEERankGeneral = uPSEERankGeneral;
-}
+  }
 
   Data.fromJson(dynamic json) {
     _studentName = json['Student Name'];
@@ -67,19 +71,22 @@ class Data {
   String? _entry;
   num? _uPSEERollnumber;
   num? _uPSEERankGeneral;
-Data copyWith({  String? studentName,
-  String? emailAddress,
-  num? aKTURollno,
-  String? entry,
-  num? uPSEERollnumber,
-  num? uPSEERankGeneral,
-}) => Data(  studentName: studentName ?? _studentName,
-  emailAddress: emailAddress ?? _emailAddress,
-  aKTURollno: aKTURollno ?? _aKTURollno,
-  entry: entry ?? _entry,
-  uPSEERollnumber: uPSEERollnumber ?? _uPSEERollnumber,
-  uPSEERankGeneral: uPSEERankGeneral ?? _uPSEERankGeneral,
-);
+  Data copyWith({
+    String? studentName,
+    String? emailAddress,
+    num? aKTURollno,
+    String? entry,
+    num? uPSEERollnumber,
+    num? uPSEERankGeneral,
+  }) =>
+      Data(
+        studentName: studentName ?? _studentName,
+        emailAddress: emailAddress ?? _emailAddress,
+        aKTURollno: aKTURollno ?? _aKTURollno,
+        entry: entry ?? _entry,
+        uPSEERollnumber: uPSEERollnumber ?? _uPSEERollnumber,
+        uPSEERankGeneral: uPSEERankGeneral ?? _uPSEERankGeneral,
+      );
   String? get studentName => _studentName;
   String? get emailAddress => _emailAddress;
   num? get aKTURollno => _aKTURollno;
@@ -97,5 +104,4 @@ Data copyWith({  String? studentName,
     map['UPSEE Rank(General)'] = _uPSEERankGeneral;
     return map;
   }
-
 }
